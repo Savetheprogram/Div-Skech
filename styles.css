@@ -12,6 +12,10 @@
     height: 3px;
     margin: 1px;
     border: solid black 1px;
+
+}
+.sketch:hover{
+    background-color: red;
 }
 .body {
   display: flex;
