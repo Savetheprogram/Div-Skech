@@ -19,8 +19,8 @@ function createGrid() {
         while(elements.length > 0) {
             elements[0].parentNode.removeChild(elements[0]);
         }
-        grid.style.height = +dimensions * 7 +"px"
-        grid.style.width = +dimensions * 7 +"px"
+        grid.style.height = +dimensions * 5 +"px"
+        grid.style.width = +dimensions * 5 +"px"
         for (let i=0; i<(dimensions*dimensions); i++) {
             gridContent = document.createElement('div')
             gridContent.classList.add('sketch')
@@ -28,8 +28,8 @@ function createGrid() {
         }
         buttonPressCounter +=1
     } else {
-    grid.style.height = +dimensions * 7 +"px"
-    grid.style.width = +dimensions * 7 +"px"
+    grid.style.height = +dimensions * 5 +"px"
+    grid.style.width = +dimensions * 5 +"px"
     for (let i=0; i<(dimensions*dimensions); i++) {
         gridContent = document.createElement('div')
         gridContent.classList.add('sketch')
@@ -39,24 +39,24 @@ function createGrid() {
     }
 }
 
-const element = document.querySelector('.container')
-document.body.appendChild(element)
-let moved
-let downListener = () => {
-    moved = false
-}
-element.addEventListener('mousedown', downListener)
-let moveListener = () => {
-    moved = true
-}
-element.addEventListener('mousemove', moveListener)
-let upListener = () => {
-    if (moved) {
-        console.log('moved')
-    } else {
-        console.log('not moved')
+const drawButton = document.querySelector('.drawButton')
+drawButton.addEventListener('click', () => {drawing()})
+
+
+
+    function drawing() {
+
+        const drawDivs = document.querySelectorAll('.sketch');
+    for (let i=0; i<drawDivs.length; i++) {
+        drawDivs[i].addEventListener('mouseenter', () => {
+            drawDivs[i].classList.add('paint')})
     }
-}
-element.addEventListener('mouseup', upListener)
+
+    }
+
+
+
+
+
 
 
